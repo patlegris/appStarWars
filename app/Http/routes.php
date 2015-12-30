@@ -23,18 +23,18 @@
 
 Route::get('/','FrontController@index');
 
-Route::get('/products', function () {
-
-    return "Je suis la liste des produits";
-
-});
-
-Route::get('posts', function(){
-    var_dump(env('DB_DATABASE','localhost2'));
-    return App\Post::all();
-});
-
-Route::get('post/{id}','FrontController@show'); //show{$id}
+//Route::get('/products', function () {
+//
+//    return "Je suis la liste des produits";
+//
+//});
+//
+//Route::get('posts', function(){
+//    var_dump(env('DB_DATABASE','localhost2'));
+//    return App\Post::all();
+//});
+//
+//Route::get('post/{id}','FrontController@show'); //show{$id}
 
 /*
 |--------------------------------------------------------------------------

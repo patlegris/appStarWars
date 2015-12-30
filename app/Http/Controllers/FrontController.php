@@ -12,12 +12,6 @@ class FrontController extends Controller
 {
     public function index()
     {
-        return view ('home');
-    }
 
-    public function show($id,$slug)
-    {
-        var_dump ($slug);
-        return Post::find($id);
     }
 }
