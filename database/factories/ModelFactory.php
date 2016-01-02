@@ -29,5 +29,4 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'content' => $faker->paragraph(rand(6,12)),
         'quantity' => $faker->randomFloat(null,10,99),
     ];
-
 });
