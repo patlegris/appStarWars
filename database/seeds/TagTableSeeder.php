@@ -11,24 +11,24 @@ class TagTableSeeder extends Seeder
      */
     public function run()
     {
-//        DB::table('Tags')->insert(
-//            [
-//                [
-//                    ['name' => 'Laser bleu'],
-//                ],
-//                [
-//                    ['name' => 'Laser rouge'],
-//                ],
-//                [
-//                    ['name' => 'Casque blanc'],
-//                ],
-//                [
-//                    ['name' => 'Casque noir'],
-//                ],
-//                [
-//                    ['name' => 'Casque bleu'],
-//                ]
-//            ]);
+        DB::table('Tags')->insert(
+            [
+                [
+                    ['name' => 'Laser bleu'],
+                ],
+                [
+                    ['name' => 'Laser rouge'],
+                ],
+                [
+                    ['name' => 'Casque blanc'],
+                ],
+                [
+                    ['name' => 'Casque noir'],
+                ],
+                [
+                    ['name' => 'Casque bleu'],
+                ]
+            ]);
 
 
     }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Product;
 use App\Pictures;
 use Illuminate\Support\Facades\Storage;
 
@@ -37,7 +38,7 @@ class PictureTableSeeder extends Seeder
             );
 
             Pictures::create([
-                'product_id' => $product_id,
+                'product_id' => $product->id,
                 'uri' => $uri,
                 'title' => $this->faker->name,
                 'size' => 150,
