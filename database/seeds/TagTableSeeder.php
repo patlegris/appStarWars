@@ -11,25 +11,40 @@ class TagTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Tags')->insert(
+        DB::table('tags')->insert([
             [
-                [
-                    ['name' => 'Laser bleu'],
-                ],
-                [
-                    ['name' => 'Laser rouge'],
-                ],
-                [
-                    ['name' => 'Casque blanc'],
-                ],
-                [
-                    ['name' => 'Casque noir'],
-                ],
-                [
-                    ['name' => 'Casque bleu'],
-                ]
-            ]);
-
-
+                'name' => 'laser',
+            ],
+            [
+                'name' => 'star',
+            ],
+            [
+                'name' => 'war',
+            ],
+            [
+                'name' => 'peace',
+            ],
+            [
+                'name' => 'galaxy',
+            ],
+            [
+                'name' => 'princess',
+            ],
+            [
+                'name' => 'dark',
+            ],
+            [
+                'name' => 'force',
+            ],
+            [
+                'name' => 'tatooine',
+            ],
+            [
+                'name' => 'luc',
+            ],
+            [
+                'name' => 'chewbacca',
+            ],
+        ]);
     }
 }

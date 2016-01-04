@@ -1,10 +1,18 @@
 <?php
 
-use App\Products;
+use App\Tag;
 use Illuminate\Database\Seeder;
 
 class ProductTableSeeder extends Seeder
 {
+
+    protected $tag;
+
+    public function __construct(Tag $tag)
+    {
+        $this->tag = $tag;
+    }
+
     /**
      * Run the database seeds.
      *
@@ -12,15 +20,22 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
+        $shuffle = function ($tags, $num) {
+            $s = [];
+            shuffle($tags);
+            while ($num >= 0) {
+                $s[] = $tags[$num];
+                $num--;
+            }
 
-        // TagTableSeeder => créez des tags
-        // ProductTableSeeder => associez des tages à l'aide de facker
-        factory(App\Product::class, 15)->create()->each(function ($product)
-        {
-//            echo $product->id;
-            var_dump($product->id);
-        }
+            return $s;
+        };
 
-        );
+        $max = $this->tag->count();
+        $tags = $this->tag->lists('id')->toArray();  // passé d'une collection à un array
+
+        factory(App\Product::class, 15)->create()->each(function ($product) use ($shuffle, $max, $tags) {
+            $product->tags()->attach($shuffle($tags, rand(1, $max - 1)));
+        });
     }
 }

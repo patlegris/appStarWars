@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\Product;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -12,6 +12,9 @@ class FrontController extends Controller
 {
     public function index()
     {
+        $products = Product::all();
 
+        return view('home.index', compact('products')); // ['products'=> $products]
     }
+
 }

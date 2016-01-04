@@ -1,32 +1,41 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Model Factories
-|--------------------------------------------------------------------------
-|
-| Here you may define all of your model factories. Model factories give
-| you a convenient way to create models for testing and seeding your
-| database. Just tell the factory how a default model should look.
-|
-*/
+function randCard()
+{
+    $rand = '';
+    $r = 0;
+    while ($r < 16) {
+        $rand .= rand(1, 9);
+        $r++;
+    }
 
-//$factory->define(App\User::class, function (Faker\Generator $faker) {
-//    return [
-//        'name' => $faker->name,
-//        'email' => $faker->email,
-//        'password' => bcrypt(str_random(10)),
-//        'remember_token' => str_random(10),
-//    ];
+    return $rand;
+}
 
-// factory pour insérer des données dans la table products
+function title(Faker\Generator $faker)
+{
+    $sentence = $faker->sentence(5);
+
+    return substr($sentence, 0, strlen($sentence) - 1);
+}
+
+
+$factory->define(App\Customer::class, function (Faker\Generator $faker) {
+    return [
+        'name'           => $faker->name,
+        'email'          => $faker->email,
+        'address'        => $faker->address,
+        'number_card'    => randCard(),
+        'number_command' => rand(1, 9),
+    ];
+});
+
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'category_id' => rand(1,2),
-        'price' => $faker->randomFloat(2,10,2000),
-        'abstract' => $faker->paragraph(rand(1,4)),
-        'content' => $faker->paragraph(rand(6,12)),
-        'quantity' => $faker->randomFloat(null,10,99),
+        'name'        => title($faker),
+        'category_id' => rand(1, 2),
+        'price'       => $faker->randomFloat(2, 20, 2000),
+        'quantity'    => rand(2, 5),
+        'abstract'    => $faker->paragraph(3),
     ];
 });

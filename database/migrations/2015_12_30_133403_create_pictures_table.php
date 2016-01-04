@@ -14,11 +14,10 @@ class CreatePicturesTable extends Migration
     {
         Schema::create('pictures', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id')->unsigned();
+            $table->unsignedInteger('product_id');
+            $table->string('title', 100);
             $table->string('uri');
-            $table->string('title');
             $table->smallInteger('size');
-            $table->enum('type',['png','jpg','gif']);
             $table->foreign('product_id')->references('id')->on('products')->onDelete('CASCADE');
             $table->timestamps();
         });

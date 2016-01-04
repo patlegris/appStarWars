@@ -14,13 +14,13 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name', 100);
             $table->integer('category_id')->unsigned()->nullable();
-            $table->string('name',100);
             $table->text('abstract');
-            $table->text('content');
-            $table->decimal('price',7,2); // decimal (7.2)
-            $table->unsignedSmallInteger('quantity');
-            $table->enum('status', ['opened','closed'])->default('opened');
+            $table->decimal('price',5,2);
+            $table->smallInteger('quantity');
+            $table->enum('status', ['opened', 'closed'])->default('opened');
+            $table->timestamp('published_at');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('SET NULL');
             $table->timestamps();
         });
