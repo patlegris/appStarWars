@@ -12,9 +12,10 @@ class FrontController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate(5);
 
-        return view('home.index', compact('products')); // ['products'=> $products]
+        return view('home.index', compact('products'));  // ['products'=>$products] Pagination pour 5
     }
+
 
 }

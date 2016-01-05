@@ -1,23 +1,27 @@
 @extends('layouts.master')
 @section('content')
-    <div id="main" role="main" class="line pam">
+    {{--<div id="main" role="main" class="line pam">--}}
         @forelse($products as $product)
-            <div class="product clear">
+            <div class="row product clear">
                 @if($picture = $product->picture)
-                    <img class="picture" src="{{url('uploads',$picture->uri)}}">
+                    <img class="picture large-3 medium-3 columns " src="{{url('uploads',$picture->uri)}}">
                 @endif
-                <h2><a href="{{url('product', $product->id)}}">{{$product->name}}</a></h2>
+                <h2 class="large-9 medium-9 columns"><a href="{{url('product', $product->id)}}">{{$product->name}}</a></h2>
                 {{$product->abstract}}
-                <p class="">Tags:
+                <p class="">{{trans('app.tag')}}
                     @forelse($product->tags as $tag)
                         <small>{{$tag->name}}</small>
                     @empty
-                        <small>No tag</small>
+                        <small>Pas de mots clés !</small>
                     @endforelse
                 </p>
-            </div>
+                <br>
+                </div>
         @empty
-            <p>No product</p>
+            <p>Pas de produit</p>
         @endforelse
+    {{--</div>--}}
+    <div class="row column">
+    {!! $products->links() !!}
     </div>
 @stop
