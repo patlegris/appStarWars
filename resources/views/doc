@@ -1,0 +1,20 @@
+layouts.master
+
+<html>
+<head>
+<body>
+@yield ('content','default value')
+</body>
+</head>
+</html>
+
+
+home/index.blade.php
+------------------------
+@extends('layouts.master')
+
+@section('content')
+
+    boucle des produits
+
+@stop
