@@ -12,7 +12,7 @@
                     @forelse($product->tags as $tag)
                         <small>{{$tag->name}}</small>
                     @empty
-                        <small>Pas de mots clés !</small>
+                        {{trans('app.notag')}}
                     @endforelse
                 </p>
                 <br>

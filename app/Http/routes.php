@@ -12,6 +12,8 @@
 */
 
 Route::get('/','FrontController@index');
+Route::get('/product/{id}','FrontController@showProduct');
+
 
 
 /*

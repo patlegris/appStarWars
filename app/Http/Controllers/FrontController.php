@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use View;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -10,12 +12,26 @@ use App\Http\Controllers\Controller;
 
 class FrontController extends Controller
 {
-    public function index()
+    public function __construct()
     {
-        $products = Product::paginate(5);
+        View::composer('partials.nav', function ($view) {
 
-        return view('home.index', compact('products'));  // ['products'=>$products] Pagination pour 5
+            $categories = Category::all();
+            $view->with(compact('categories'));
+        });
     }
 
+
+    public function index()
+    {
+        $products = Product::with('tags', 'category', 'picture')->paginate(5);
+
+        return view('front.index', compact('products', 'title'));  // ['products'=>$products] Pagination pour 5
+    }
+
+    public function showProduct($id)
+    {
+
+    }
 
 }
