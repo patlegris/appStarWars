@@ -30,7 +30,7 @@ class FrontController extends Controller
 
     public function showProduct($id)
     {
+        $products = Product::with('tags', 'category', 'picture');
         return view('front.product', compact('products', 'title'));
     }
-
 }

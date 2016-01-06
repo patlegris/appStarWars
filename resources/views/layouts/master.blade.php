@@ -16,9 +16,7 @@
 <body>
 
 <header id="header" role="banner" class="row line pam">
-
     @include('partials.nav')
-
 </header>
 
 @yield ('content','default value')
