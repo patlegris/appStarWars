@@ -19,12 +19,6 @@ class CategoryTableSeeder extends Seeder
                 [
                     'title' => 'casques',
                 ],
-                [
-                    'title' => 'Romain',
-                ],
-                [
-                    'title' => 'yini',
-                ],
             ]
 
         );

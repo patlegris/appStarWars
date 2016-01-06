@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('content')
-    {{--<div id="main" role="main" class="line pam">--}}
         @forelse($products as $product)
             <div class="row product clear">
                 @if($picture = $product->picture)
@@ -20,7 +19,6 @@
         @empty
             <p>Pas de produit</p>
         @endforelse
-    {{--</div>--}}
     <div class="row column">
     {!! $products->links() !!}
     </div>
