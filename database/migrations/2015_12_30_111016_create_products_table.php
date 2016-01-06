@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->string('name', 100);
             $table->integer('category_id')->unsigned()->nullable();
             $table->text('abstract');
+            $table->text('content');
             $table->decimal('price',5,2);
             $table->smallInteger('quantity');
             $table->enum('status', ['opened', 'closed'])->default('opened');

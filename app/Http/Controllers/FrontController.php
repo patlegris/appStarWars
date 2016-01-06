@@ -24,14 +24,13 @@ class FrontController extends Controller
 
     public function index()
     {
-        $products = Product::with('tags', 'category', 'picture')->paginate(5);
-
-        return view('front.index', compact('products', 'title'));  // ['products'=>$products] Pagination pour 5
+        $products = Product::with('tags', 'category', 'picture')->paginate(5); // ['products'=>$products] Pagination pour 5
+        return view('front.index', compact('products', 'title'));
     }
 
     public function showProduct($id)
     {
-
+        return view('front.product', compact('products', 'title'));
     }
 
 }
