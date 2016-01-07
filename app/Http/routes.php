@@ -11,15 +11,20 @@
 |
 */
 
-Route::get('/','FrontController@index');
-Route::get('product/{id}','FrontController@showProduct');
-Route::get('category/{id}','FrontController@showProductByCategory');
+use Illuminate\Http\Request;
+use App\Product;
+
+Route::pattern('id', '[1-9][0-9]*');
+
+Route::get('/', ['as' => 'home', 'uses' => 'FrontController@index']);
+Route::get('/product/{id}', 'FrontController@showProduct');
+Route::get('/category/{id}', 'FrontController@showProductByCategory');
 
 Route::get('contact','FrontController@showContact');
 
 Route::post('storeContact',function(Request $request){
 //    var_dump($_POST);
-    dd($request);
+    dd($request->all());
 });
 
 
