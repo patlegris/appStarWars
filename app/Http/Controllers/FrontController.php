@@ -58,20 +58,24 @@ class FrontController extends Controller
 
     public function storeContact(Request $request)
     {
-//        $validator = Validator::make($request->all(), [
+//        session_start();
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email', // field du formulaire => Regex de vérif mail
+            'content' => 'required|max:200'
+        ]);
+
+//        dd($validator->fails());
+//
+        if ($validator->fails()) return back()->withInput()->withErrors($validator);
+//
+//        $this->validate($request, [
 //            'email' => 'required|email'
 //        ]);
 //
-//        if ($validator->fails()) return back()->withInput()->withErrors($validator);
-
-        $this->validate($request, [
-            'email' => 'required|email'
-        ]);
-
-        return redirect('contact')->with([
-            'message' => trans('app.contactSuccess'),
-            'form'    => false
-        ]);
+//        return redirect('contact')->with([
+//            'message' => trans('app.contactSuccess'),
+//            'form'    => false
+//        ]);
     }
-
 }

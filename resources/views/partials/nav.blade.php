@@ -14,11 +14,11 @@
         <ul class="menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">
             <li><a href="/">Accueil</a></li>
             @forelse($categories as $category)
-                <li><a href={{$category}}>{{$category->title}}</a></li>
+                <li><a href="{{$category}}">{{$category->title}}</a></li>
             @empty
                 <li>{{trans('app.nocategory')}}</li>
             @endforelse
-            <li><a href="contact">Contact</a></li>
+            <li><a href="{{url('contact')}}">Contact</a></li>
             <li><a href="#">Login</a></li>
         </ul>
     </div>

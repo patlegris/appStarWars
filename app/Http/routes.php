@@ -20,12 +20,11 @@ Route::get('/', ['as' => 'home', 'uses' => 'FrontController@index']);
 Route::get('/product/{id}', 'FrontController@showProduct');
 Route::get('/category/{id}', 'FrontController@showProductByCategory');
 
-Route::get('contact','FrontController@showContact');
 
-Route::post('storeContact',function(Request $request){
+//Route::post('storeContact',function(Request $request){
 //    var_dump($_POST);
-    dd($request->all());
-});
+//    dd($request->all());
+//});
 
 
 /*
@@ -41,4 +40,7 @@ Route::post('storeContact',function(Request $request){
 
 Route::group(['middleware' => ['web']], function () {
     //
+    Route::get('/contact','FrontController@showContact');
+    Route::post('/storeContact','FrontController@storeContact');
+
 });
