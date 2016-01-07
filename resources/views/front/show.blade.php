@@ -1,11 +1,12 @@
 @extends('layouts.master')
 @section('content')
-    @forelse($products as $product)
+    {{$title or 'Bienvenue à vous' }}
+    {{--    @forelse($products as $product)--}}
         <div class="row product">
-        @if($pictures = $product->pictures)
+        @if($picture = $product->picture)
             <img class="row" src="{{url('uploads',$picture->uri)}}">
         @endif
-        <h2 class="row"><a href="{{url('/product/',$product['$id'])}}">{{$product['name']}}</a></h2>
+        <h2 class="row"><a href="{{url('/product/', $id)}}">{{$product['name']}}</a></h2>
         <ul>
             <li>Description : {{$product['content']}}</li>
             <li>Prix unitaire TTC : {{$product['price']}}</li>
@@ -20,9 +21,9 @@
             @endforelse
         </p>
     </div>
-    @empty
-        <p>Pas de produit</p>
-    @endforelse
+    {{--@empty--}}
+        {{--<p>Pas de produit</p>--}}
+    {{--@endforelse--}}
     <div class="row column">
         {!! $products->links() !!}
     </div>
