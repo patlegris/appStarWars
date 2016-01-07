@@ -15,6 +15,13 @@ Route::get('/','FrontController@index');
 Route::get('product/{id}','FrontController@showProduct');
 Route::get('category/{id}','FrontController@showProductByCategory');
 
+Route::get('contact','FrontController@showContact');
+
+Route::post('storeContact',function(Request $request){
+//    var_dump($_POST);
+    dd($request);
+});
+
 
 /*
 |--------------------------------------------------------------------------

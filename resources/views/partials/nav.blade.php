@@ -18,7 +18,7 @@
             @empty
                 <li>{{trans('app.nocategory')}}</li>
             @endforelse
-            <li><a href="#">Contact</a></li>
+            <li><a href="contact">Contact</a></li>
             <li><a href="#">Login</a></li>
         </ul>
     </div>

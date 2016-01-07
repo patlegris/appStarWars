@@ -51,11 +51,9 @@ class FrontController extends Controller
         return view('front.show', compact('product', 'title'));
     }
 
-    public function contact()
+    public function showContact()
     {
-        $title = " Page contact";
-
-        return view('front.contact', compact('title'));
+        return view('front.contact');
     }
 
     public function storeContact(Request $request)
