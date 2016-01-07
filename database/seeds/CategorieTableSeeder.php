@@ -18,7 +18,7 @@ class CategoryTableSeeder extends Seeder
                 ],
                 [
                     'title' => 'casques',
-                ],
+                ]
             ]
 
         );

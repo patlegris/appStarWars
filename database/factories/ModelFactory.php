@@ -26,7 +26,7 @@ $factory->define(App\Customer::class, function (Faker\Generator $faker) {
         'email'          => $faker->email,
         'address'        => $faker->address,
         'number_card'    => randCard(),
-        'number_command' => rand(1, 9),
+        'number_command' => rand(1, 200),
     ];
 });
 
@@ -37,6 +37,5 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'price'       => $faker->randomFloat(2, 20, 2000),
         'quantity'    => rand(2, 5),
         'abstract'    => $faker->paragraph(3),
-        'content'    => $faker->paragraph(10),
     ];
 });
