@@ -7,7 +7,7 @@
 <div class="top-bar" id="main-menu">
     <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">Catalogue produit e-Star-Wars</li>
+            <li class="menu-text">Star-Wars POWA</li>
         </ul>
     </div>
     <div class="top-bar-right">
