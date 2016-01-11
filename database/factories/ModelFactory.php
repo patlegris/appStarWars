@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 function randCard()
 {
     $rand = '';
@@ -37,5 +39,6 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'price'       => $faker->randomFloat(2, 20, 2000),
         'quantity'    => rand(2, 5),
         'abstract'    => $faker->paragraph(3),
+        'published_at' =>$faker->dateTime('now')
     ];
 });

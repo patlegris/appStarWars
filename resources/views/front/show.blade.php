@@ -10,5 +10,20 @@
             </figure>
         @endif
         @include('front.partials.meta', compact('product'))
+        <form method="POST" action="{{url('command')}}">
+            {!! csrf_field() !!}
+            <div class="div-select">
+                <label for="quantity">{{trans('app.choiceQuantity')}}</label>
+                <select name="quantity" class="select">
+                    @foreach($quantities as $quantity)
+                        <option value="$quantity">{{$quantity}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-submit">
+                <input type="submit" value="{{trans('app.command')}}" >
+            </div>
+        </form>
+
     </div>
 @stop

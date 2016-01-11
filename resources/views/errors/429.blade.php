@@ -40,7 +40,7 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">404</div>
+        <div class="title">To many Attempt</div>
     </div>
 </div>
 </body>

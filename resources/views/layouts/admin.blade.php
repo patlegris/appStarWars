@@ -11,7 +11,7 @@
 <body>
 {{--comment--}}
 <header id="header" role="banner" class="line pam">
-    @include('partials.nav')
+    @include('partials.admin_nav')
 
 </header>
 <div id="main" role="main" class="line pam">
