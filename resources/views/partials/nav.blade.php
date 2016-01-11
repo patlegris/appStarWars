@@ -1,18 +1,27 @@
-<nav id="navigation" role="navigation">
-    <ul class="navigation">
-        <li><a href="{{url('/')}}">{{trans('app.home')}}</a></li>
-        @forelse($categories as $id => $title)
-            <li><a href="{{url('category',$id )}}">{{$title}}</a></li>
-        @empty
-            <li>{{trans('app.noCategory')}}</li>
-        @endforelse
-        <li><a href="{{url('contact')}}">{{trans('app.contact')}}</a></li>
+<!-- Navigation -->
+<div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <div class="title-bar-title">Menu</div>
+</div>
 
-        @if(Auth::check())
-            <li><a href="{{url('dashboard')}}">{{trans('app.dashboard')}}</a></li>
-            <li><a href="{{url('logout')}}">{{trans('app.logout')}}</a></li>
-        @else
-            <li><a href="{{url('login')}}">{{trans('app.login')}}</a></li>
-        @endif
-    </ul>
-</nav>
+<div class="top-bar" id="main-menu">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Catalogue produit e-Star-Wars</li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">
+            <li><a href="/">Accueil</a></li>
+            @forelse($categories as $category)
+                <li><a href="{{$category}}">{{$category->title}}</a></li>
+            @empty
+                <li>{{trans('app.nocategory')}}</li>
+            @endforelse
+            <li><a href="{{url('contact')}}">Contact</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </div>
+</div>
+<br>
+<!-- /navigation -->

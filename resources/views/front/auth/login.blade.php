@@ -13,13 +13,13 @@
         </div>
         <div class="form-text">
             <label class="label" for="password">{{trans('app.password')}}</label>
-            <input class="input-text" id="password" name="password" type="password" value="{{old('password')}}" >
+            <input class="input-text" id="password" name="password" type="password">
             @if($errors->has('password')) <span class="error">{{$errors->first('password')}}</span> @endif
         </div>
 
-        <div class="form-text">
+        <div class="checkbox">
             <label class="label" for="remember">{{trans('app.remember')}}</label>
-            <input type="radio" name="remember" value="1"/>
+            <input type="checkbox" name="remember" value="true"/>
         </div>
 
         <div class="form-submit">
