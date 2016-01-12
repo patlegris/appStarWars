@@ -2,7 +2,7 @@
 
 @section('content')
     @if(Session::has('message'))
-        
+
     @else
         <form method="POST" action="{{url('storeContact')}}">
             {!! csrf_field() !!}
@@ -16,7 +16,6 @@
                 <textarea row="50" cols="50" name="content">{{old('content')}}</textarea>
                 <span><small>{{trans('app.maxCharContent')}}</small></span>
                 @if($errors->has('content')) <span class="error">{{$errors->first('content')}}</span> @endif
-            </div>
             </div>
             <div class="form-submit">
                 <input type="submit" value="ok" >
