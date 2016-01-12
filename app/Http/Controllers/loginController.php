@@ -22,7 +22,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-//        if (Auth::check()) return redirect()->intended('dashboard');
+        if (Auth::check()) return redirect()->intended('dashboard');
 
         if ($request->isMethod('post')) {
 

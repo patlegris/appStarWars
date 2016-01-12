@@ -82,5 +82,4 @@ class FrontController extends Controller
             'alert'   => 'success'
         ]);
     }
-
 }

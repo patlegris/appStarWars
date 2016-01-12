@@ -20,7 +20,7 @@
 
 @yield ('content','default value')
 
+</body>
 <footer id="footer" role="contentinfo" class="line pam txtcenter">
 </footer>
-</body>
 </html>

@@ -18,8 +18,8 @@
                 <li>{{trans('app.nocategory')}}</li>
             @endforelse
             <li><a href="{{url('contact')}}">Contact</a></li>
-            <li><a href="login">Login</a></li>
-            <li><a href="product">Dashboard</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/product">Dashboard</a></li>
         </ul>
         {{--@if(Auth::check())--}}
         {{--@else--}}
