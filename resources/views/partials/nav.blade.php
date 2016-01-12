@@ -1,4 +1,3 @@
-<!-- Navigation -->
 <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
     <button class="menu-icon" type="button" data-toggle></button>
     <div class="title-bar-title">Menu</div>
@@ -13,8 +12,8 @@
     <div class="top-bar-right">
         <ul class="menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">
             <li><a href="/">Accueil</a></li>
-            @forelse($categories as $category)
-                <li><a href="{{$category}}">{{$category->title}}</a></li>
+            @forelse($categories as $id => $title)
+                <li><a href="{{url('cat', [$id, str_slug($title)])}}">{{$title}}</a></li>
             @empty
                 <li>{{trans('app.nocategory')}}</li>
             @endforelse
@@ -23,5 +22,3 @@
         </ul>
     </div>
 </div>
-<br>
-<!-- /navigation -->

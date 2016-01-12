@@ -33,8 +33,12 @@ $factory->define(App\Customer::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
+
+    $title = title($faker);
+
     return [
-        'name'        => title($faker),
+        'name'        => $title,
+        'slug'        =>str_slug($title),
         'category_id' => rand(1, 2),
         'price'       => $faker->randomFloat(2, 20, 2000),
         'quantity'    => rand(2, 5),

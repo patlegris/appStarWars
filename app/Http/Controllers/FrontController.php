@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+ini_set('debug.max_nesting_level', 90);
 
 
 use View;
@@ -15,11 +16,15 @@ use App\Http\Controllers\Menu\TraitMainMenu;
 class FrontController extends Controller
 {
 
-    use TraitMainMenu;
-
     public function __construct()
     {
-        $this->getMenu();
+        View::composer('layouts.master', function ($view) {
+
+            $categories = Category::lists('title', 'id'); // collection title and id
+
+            $view->with(compact('categories'));
+
+        });
     }
 
     public function index()
