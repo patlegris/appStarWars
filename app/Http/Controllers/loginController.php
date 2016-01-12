@@ -36,10 +36,10 @@ class LoginController extends Controller
 
             dd($remember);
 //
-//            $credentials = $request->only('email', 'password');
+            $credentials = $request->only('email', 'password');
 
-            if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')], $remember)) {
-                dd('dashboard');
+            if (Auth::attempt($credentials, $remember)) {
+                return redirect()->intended('product');
             } else {
                 return back()->withInput($request->only('email', 'remember'))->with(['message' => trans('app.noAuth'), 'alert' => 'warning']);
             }

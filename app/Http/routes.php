@@ -25,42 +25,33 @@ use App\Product;
 
 
 Route::pattern('id', '[1-9][0-9]*');
-Route::pattern('slug', '[a-z_]+');
-
-Route::get('/', ['as' => 'home', 'uses' => 'FrontController@index']);
-Route::get('/product/{id}', 'FrontController@showProduct');
-Route::get('/category/{id}', 'FrontController@showProductByCategory');
-
-
-
-
-Route::group(['middleware' => ['web']], function () {
-    //
-    Route::get('/contact','FrontController@showContact');
-    Route::post('/storeContact','FrontController@storeContact');
-
-});
+Route::pattern('slug', '[a-z_]*');
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', ['as' => 'home', 'uses' => 'FrontController@index']);
-    Route::get('/category/{id}', 'FrontController@showProductByCategory');
-    Route::get('/product/{id}', 'FrontController@showProduct');
+    Route::get('cat/{id}/{slug?}', 'FrontController@showProductByCategory');
+    Route::get('prod/{id}/{slug?}', 'FrontController@showProduct');
+
+    Route::get('/contact', 'FrontController@showContact');
+    Route::post('/storeContact', 'FrontController@storeContact');
+
     Route::post('command', 'FrontController@command');
 
     Route::get('contact', 'FrontController@showContact');
     Route::post('storeContact', 'FrontController@storeContact');
+
+    Route::get('logout', 'LoginController@logout');
 
     // limit 60 requests per one minute from a single address IP, throttle
     Route::group(['middleware' => ['throttle:60,1']], function () {
         Route::any('login', 'LoginController@login');
     });
 
-    Route::get('logout', 'LoginController@logout');
 
     Route::group([
         'middleware' => ['auth']], function () {
-        Route::resource('product', 'Admin\ProductController');
-//        Route::get('dashboard', 'Admin\DashboardController@index');
+        Route::resource('product', 'ProductController');
+//        Route::get('dashboard', 'DashboardController@index');
     });
 });
 

@@ -3,7 +3,7 @@
 @section('content')
     @forelse($products as $product)
         <div class="product clearfix">
-            <h2 class=""><a href="{{url('product', $product->id)}}">{{$product->name}}</a></h2>
+            <h2 class=""><a href="{{url('prod', [$product->id, $product->slug])}}">{{$product->name}}</a></h2>
             {{ $product->abstract }}
             @if($picture = $product->picture)
                 <figure class="fl figure">

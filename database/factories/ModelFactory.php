@@ -38,7 +38,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
 
     return [
         'name'        => $title,
-        'slug'        =>str_slug($title),
+        'slug'        => str_slug($title),
         'category_id' => rand(1, 2),
         'price'       => $faker->randomFloat(2, 20, 2000),
         'quantity'    => rand(2, 5),

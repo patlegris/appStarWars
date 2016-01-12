@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Menu\TraitMainMenu;
 
+
 class FrontController extends Controller
 {
 
@@ -35,7 +36,7 @@ class FrontController extends Controller
         return view('front.index', compact('products', 'title'));
     }
 
-    public function showProduct($id)
+    public function showProduct($id, $slug = '')
     {
         $product = Product::findOrFail($id);
         $title = " Page product:{$product->name}";
@@ -44,7 +45,7 @@ class FrontController extends Controller
         return view('front.show', compact('product', 'title', 'quantities'));
     }
 
-    public function showProductByCategory($id)
+    public function showProductByCategory($id, $slug = '')
     {
         $category = Category::findOrFail($id);
         $products = $category->products()->with('tags', 'category', 'picture')->paginate(5);

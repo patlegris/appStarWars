@@ -1,14 +1,14 @@
 @extends('layouts.master')
 
 @section('content')
+    <div class="row product clearfix">
     <h2 class="">{{$product->name}}</h2>
-    <div class="product clearfix">
-        {{ $product->abstract }}
         @if($picture = $product->picture)
-            <figure class="fl figure">
+            <figure class="large-3 medium-3 columns figure">
                 <a href="{{url('product', $product->id)}}"><img src="{{url('uploads',$picture->uri)}}"></a>
             </figure>
         @endif
+        {{ $product->abstract }}
         @include('front.partials.meta', compact('product'))
         <form method="POST" action="{{url('command')}}">
             {!! csrf_field() !!}
