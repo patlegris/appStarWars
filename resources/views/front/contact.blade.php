@@ -2,7 +2,7 @@
 
 @section('content')
     @if(Session::has('message'))
-        @include('front.partials.flash')
+        
     @else
         <form method="POST" action="{{url('storeContact')}}">
             {!! csrf_field() !!}

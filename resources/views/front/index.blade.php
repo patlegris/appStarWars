@@ -15,7 +15,7 @@
                             href="{{url('cat', [$cat->id, $cat->slug])}}">{{trans('app.category')}}{{$cat->title}}</a>
                 </p>
             @endif
-{{--            @include('front.partials.meta', compact('product'))--}}
+            @include('front.partials.meta', compact('product'))
         </div>
     @empty
         <p>No product</p>
