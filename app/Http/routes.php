@@ -1,5 +1,6 @@
 <?php
-ini_set('debug.max_nesting_level', 100);
+ini_set('debug.max_nesting_level', 200);
+
 
 use App\Category;
 use Illuminate\Http\Request;
@@ -59,7 +60,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::group([
         'middleware' => ['auth']], function () {
         Route::resource('product', 'Admin\ProductController');
-        Route::get('dashboard', 'Admin\DashboardController@index');
+//        Route::get('dashboard', 'Admin\DashboardController@index');
     });
 });
 
@@ -67,3 +68,21 @@ Route::group(['middleware' => ['web']], function () {
     Container de service
 \* ------------------------------------------------- */
 
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
+});
