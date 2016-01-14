@@ -53,19 +53,27 @@
     <form method="POST" action="{{url('product')}}>
     {!! csrf_field() !!}
 
-<div class="form-text">
+            <div class=" form-text
+    ">
     <label class="label" for="name">name</label>
-    <input class="input-text" id="name" name="name" type="text" value="{{old('name')}}" >
+    <input class="input-text" id="name" name="name" type="text" value="{{old('name')}}">
 </div>
 
-    <td>
-        <form method="POST" action="{{url('product', $product->id)}}">
-            {!! csrf_field() !!}
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" value="delete">
-        </form>
-    </td>
+<td>
+    <form method="POST" action="{{url('product', $product->id)}}">
+        {!! csrf_field() !!}
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="delete">
+    </form>
+</td>
+
+<div class="input-file">
+    <h2>{{trans('app.addImage')}}</h2>
+    <input class="file" type="file" name="image">
 </div>
+
+<?php dd($request->input('thumbnail')); ?>
+
 </body>
 <footer id="footer" role="contentinfo" class="line pam txtcenter">
 </footer>

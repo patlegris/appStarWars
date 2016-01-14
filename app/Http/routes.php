@@ -25,17 +25,19 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('contact', 'FrontController@showContact');
     Route::post('storeContact', 'FrontController@storeContact');
 
-    Route::get('logout', 'LoginController@logout');
 
     // limit 60 requests per one minute from a single address IP, throttle
     Route::group(['middleware' => ['throttle:60,1']], function () {
         Route::any('login', 'LoginController@login');
     });
 
+    Route::get('logout', 'LoginController@logout');
+
     Route::group([
         'middleware' => ['auth']], function () {
         Route::resource('product', 'ProductController');
-//        Route::get('dashboard', 'DashboardController@index');
+        Route::get('prod/status/{id}','ProductController@changeStatus');
+        Route::resource('dashboard', 'DashboardController@index');
     });
 });
 

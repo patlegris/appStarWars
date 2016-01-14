@@ -16,7 +16,7 @@
         </thead>
         @forelse($products as $product)
             <tr>
-                <td>{{$product->status}}</td>
+                <td><a class="btn btn-{{$product->status}}" href="{{url('product',['status', $product->id])}}">{{$product->status}}</td>
                 <td><a href="{{url('product', [$product->id, 'edit'])}}">{{$product->name}}</a></td>
                 <td>{{$product->price}}</td>
                 <td>{{$product->quantity}}</td>

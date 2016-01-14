@@ -41,9 +41,23 @@ class ProductController extends Controller
      */
     public function store (Request $request)
     {
-//        $request->all();
-        dd($request->all());
-//        DB::table('product')->insert();
+        if (!is_null($request->file('thumbnail'))) {
+            $im = $request->file('thumbnail');
+
+            // estension de l'image
+            $ext = $im->getClientOriginalExtension();
+
+            $uri = str_random(12) . '.' . $ext;
+
+            $im->move(env('UPLOAD_PATH', './uploads'), $uri);
+
+            Picture::create ([
+                'uri' => $uri,
+                'size' => $im->getSize(),
+                'type' => $ext,
+                'product_id' => $product->id
+            ]);
+        }
     }
 
     /**
@@ -77,7 +91,11 @@ class ProductController extends Controller
      */
     public function update (Request $request, $id)
     {
-        //
+//        $product = Product::find($id);
+//
+//        $product->name='foo';
+//
+//        $product->save();
     }
 
     /**
@@ -90,5 +108,16 @@ class ProductController extends Controller
     {
         Product::destroy($id);
         return back()->with('Product deleted');
+    }
+
+    public function changeStatus ($id)
+    {
+        $product = Product::find($id);
+
+        $product = ($product->status == 'opened') ? 'closed' : 'opened';
+
+        $product->save();
+
+        return back()->with(['message' => trans('app.changeStatus')]);
     }
 }
